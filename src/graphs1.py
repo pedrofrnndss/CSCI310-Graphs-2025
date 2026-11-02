@@ -86,6 +86,13 @@ class Graph:
             self.addVertex(t)
         self.vertList[f].addNeighbor(self.vertList[t], weight)
 
+    def edgeCount(self):
+        count = 0
+        for v in self:
+            count += len(v.getConnections())
+        print(count)
+        return count
+
     def getVertices(self):
         return self.vertList.keys()
 
@@ -133,3 +140,4 @@ if __name__ == '__main__':
             print("( %s , %s )" % (v.getId(), w.getId()))
     print('*'*20)
     print(g)
+    print (f'number of edges: {g.edgeCount()}')
